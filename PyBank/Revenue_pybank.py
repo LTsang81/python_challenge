@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 # In[138]:
 
 
@@ -20,59 +21,6 @@ warnings.filterwarnings("ignore")
 
 inputfile= os.path.join(".","Resources", "budget_data.csv")
 inputfile
-
-
-# In[207]:
-
-
-Total_Months=0
-
-
-# In[208]:
-
-
-with open(inputfile,"r") as csvfile:
-    budget=csv.reader(csvfile,delimiter=",")
-    header=next(budget)
-    Date_index=header.index("Date")
-    for row in budget:
-        Total_Months += 1
-    print("Financial Analysis")
-    print("----------------------------")
-    print("Total Months:" + " " + str(Total_Months))
-
-
-# In[209]:
-
-
-print(type(header[1]))
-
-
-# In[210]:
-
-
-Total=0
-
-
-# In[211]:
-
-
-float_Profits_Losses=header[1]
-
-
-# In[212]:
-
-
-with open(inputfile,"r") as csvfile:
-    budget=csv.reader(csvfile,delimiter=",")
-    header=next(budget)
-    for row in budget:
-        float_Profits_Losses= float(row[1])
-        Total += float_Profits_Losses
-    print("Financial Analysis")
-    print("----------------------------")
-    print("Total Months:" + " " + str(Total_Months))
-    print("Total:" + " " + str(Total))
 
 
 # In[304]:
@@ -114,18 +62,13 @@ with open(inputfile,"r") as csvfile:
     print("Greatest Increase: " + str(total_months[dateincrease + 1]) + " $" + str(increase))
     print("Greatest Decrease: " + str(total_months[datedecrease + 1]) + " $" + str(decrease))
   
-   
-
-
-
-
-
-
+ 
 # In[ ]:
 
 
-with open ("output.csv", "w") as complete:
-    csv_writer=csv.writer(complete, delimiter=",")
+with open(budget_new, "w") as txt_file:
+    txt_file.write(output)
+    budget_new = os.path.join("..", "Resources", "budget_new.txt")
 
 
 # In[ ]:
